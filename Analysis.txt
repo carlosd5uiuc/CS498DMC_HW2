@@ -1,0 +1,66 @@
+Latency Measurement
+Region: us-central1
+Register:
+Request 1: 131.21 ms
+Request 2: 104.66 ms
+Request 3: 107.86 ms
+Request 4: 1097.60 ms
+Request 5: 90.11 ms
+Request 6: 132.06 ms
+Request 7: 73.27 ms
+Request 8: 92.74 ms
+Request 9: 59.82 ms
+Request 10: 58.35 ms
+Average: 194.77 ms
+
+List:
+Request 1: 59.51 ms
+Request 2: 113.95 ms
+Request 3: 86.20 ms
+Request 4: 68.26 ms
+Request 5: 67.33 ms
+Request 6: 67.99 ms
+Request 7: 74.91 ms
+Request 8: 77.94 ms
+Request 9: 52.37 ms
+Request 10: 116.81 ms
+Average: 78.53 ms
+
+
+Region: europe-west1
+Register:
+Request 1: 332.14 ms
+Request 2: 488.58 ms
+Request 3: 365.73 ms
+Request 4: 358.01 ms
+Request 5: 373.13 ms
+Request 6: 352.75 ms
+Request 7: 461.51 ms
+Request 8: 551.82 ms
+Request 9: 434.80 ms
+Request 10: 337.00 ms
+Average: 405.55 ms
+
+List:
+Request 1: 395.68 ms
+Request 2: 355.26 ms
+Request 3: 363.81 ms
+Request 4: 371.42 ms
+Request 5: 364.40 ms
+Request 6: 367.94 ms
+Request 7: 957.42 ms
+Request 8: 375.09 ms
+Request 9: 539.61 ms
+Request 10: 429.67 ms
+Average: 452.03 ms
+
+Consistency Test:
+Total iterations: 100
+Not found immediately: 0
+Not found percentage: 0.0 %
+
+Findings:
+Latency results are as expected (194.77 ms vs 405.55 ms) for Register and (78.53 ms vs 452.03 ms) for List since the requests are being made from Chicago,IL to a server in US Central, in contrast to the EU server in 
+Belgium which is, obviously, farther from the current location where the latency test was made. 
+
+Consistency findings are also not surprising, resulting in a total of 0 users that were not found, because although the VMs are located in the different regions they are connected to the same Firestore instance which provides strong consistency guarantees.

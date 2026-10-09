@@ -1,0 +1,12 @@
+Latency Test
+The code for latency defines a measure_latency fn with url, endpoint and methods arguments which allows to  to pass the US or EU IP, the endpoint that was established in the server and the correct method.
+It then iterates 10 times with a range fn, starting a timer before the request is made and ending it after
+it has completed. The final time is appended in a times list, and the average time for that particular IP and endpoint is calculated after all 10 requests are made.
+
+The PL used was Python and the filename is lantecy.py
+
+Consistency Test
+Followed the instructions provided in the assignment.
+The PL used was Python and the filename is consistency.py
+
+
